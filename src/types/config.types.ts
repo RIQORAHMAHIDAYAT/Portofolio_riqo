@@ -1,4 +1,4 @@
-import {
+import type {
   BorderStyle,
   ChartMode,
   ChartVariant,
@@ -11,7 +11,7 @@ import {
   Theme,
   TransitionStyle,
 } from "@once-ui-system/core";
-import { NextFontWithVariable } from "next/dist/compiled/@next/font";
+import type { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 /**
  * Display configuration for UI elements.
@@ -47,9 +47,9 @@ export type FontsConfig = {
  */
 export type StyleConfig = {
   theme: Theme;
-  neutral: NeutralColor;
-  brand: Schemes;
-  accent: Schemes;
+  neutral: NeutralColor | "custom";
+  brand: Schemes | "custom";
+  accent: Schemes | "custom";
   solid: SolidType;
   solidStyle: SolidStyle;
   border: BorderStyle;

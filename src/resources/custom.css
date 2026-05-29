@@ -1,54 +1,80 @@
-/* :root {
-  /*
-  /* Example setup for custom colors */
-/* Generate at: https://once-ui.com/customize */
-/*
-  --scheme-brand-100: #08002f;
-  --scheme-brand-200:  #04025c;
-  --scheme-brand-300:  #1f398e;
-  --scheme-brand-400:  #3856ae;
-  --scheme-brand-500:  #5071cc;
-  --scheme-brand-600:  #6f94f1;
-  --scheme-brand-700:  #8db3ff;
-  --scheme-brand-800:  #b2dbff;
-  --scheme-brand-900:  #bfe8ff;
-  --scheme-brand-1000: #ccf6ff;
-  --scheme-brand-1100: #d2fcff;
-  --scheme-brand-1200: #d2fcff;
-  --scheme-brand-600-10: rgba(111,148,241,0.1);
-  --scheme-brand-600-30: rgba(111,148,241,0.3);
-  --scheme-brand-600-50: rgba(111,148,241,0.5);
+/* =====================================================
+   STARRY SKY THEME — by Riqo
+   Dark Mode  : Inspired by night sky photo (deep navy)
+   Light Mode : Inspired by daytime sky photo (soft blue)
+   ===================================================== */
 
-  --scheme-accent-100:  #030b10;
-  --scheme-accent-200:  #0d181d;
-  --scheme-accent-300:  #364248;
-  --scheme-accent-400:  #505d64;
-  --scheme-accent-500:  #69777e;
-  --scheme-accent-600:  #8a989f;
-  --scheme-accent-700:  #a8b7bf;
-  --scheme-accent-800:  #c8d7df;
-  --scheme-accent-900:  #d5e4ec;
-  --scheme-accent-1000: #e2f1f9;
-  --scheme-accent-1100: #e9f8ff;
-  --scheme-accent-1200: #efffff;
-  --scheme-accent-600-10: rgba(138,152,159,0.1);
-  --scheme-accent-600-30: rgba(138,152,159,0.3);
-  --scheme-accent-600-50: rgba(138,152,159,0.5);
+/* -------------------------------------------------------
+   BRAND COLOR SCALE — Blue Galaxy
+   (Dipakai untuk tombol utama, highlight, aksen brand)
+------------------------------------------------------- */
+:root {
+  /* Brand — Biru Galaxy (Dark to Light scale) */
+  --scheme-brand-100: #04060f;
+  --scheme-brand-200: #080d1a;
+  --scheme-brand-300: #0f1a35;
+  --scheme-brand-400: #1a2a5e;
+  --scheme-brand-500: #2a4a9c;
+  --scheme-brand-600: #4d7fd4;
+  --scheme-brand-700: #6b9bd2;
+  --scheme-brand-800: #8fb8e8;
+  --scheme-brand-900: #b8d4f5;
+  --scheme-brand-1000: #d4e8fa;
+  --scheme-brand-1100: #e8f3fd;
+  --scheme-brand-1200: #f4f9ff;
+  --scheme-brand-600-10: rgba(77, 127, 212, 0.1);
+  --scheme-brand-600-30: rgba(77, 127, 212, 0.3);
+  --scheme-brand-600-50: rgba(77, 127, 212, 0.5);
 
-  --scheme-neutral-100:  #020b10;
-  --scheme-neutral-200:  #0b181d;
-  --scheme-neutral-300:  #344248;
-  --scheme-neutral-400:  #4f5d64;
-  --scheme-neutral-500:  #68777e;
-  --scheme-neutral-600:  #89989f;
-  --scheme-neutral-700:  #a7b7be;
-  --scheme-neutral-800:  #c7d7df;
-  --scheme-neutral-900:  #d4e4ec;
-  --scheme-neutral-1000: #e1f2f9;
-  --scheme-neutral-1100: #e7f8ff;
-  --scheme-neutral-1200: #eeffff;
-  --scheme-neutral-600-10: rgba(137,152,159,0.1);
-  --scheme-neutral-600-30: rgba(137,152,159,0.3);
-  --scheme-neutral-600-50: rgba(137,152,159,0.5);
-  /*
-}*/
+  /* Accent — Biru Langit / Stellar Blue */
+  --scheme-accent-100: #020508;
+  --scheme-accent-200: #060c14;
+  --scheme-accent-300: #0d1c2e;
+  --scheme-accent-400: #163050;
+  --scheme-accent-500: #1e4878;
+  --scheme-accent-600: #3d6fab;
+  --scheme-accent-700: #6496cc;
+  --scheme-accent-800: #91bcdf;
+  --scheme-accent-900: #b5d4ef;
+  --scheme-accent-1000: #d2e8f8;
+  --scheme-accent-1100: #e7f3fd;
+  --scheme-accent-1200: #f5faff;
+  --scheme-accent-600-10: rgba(61, 111, 171, 0.1);
+  --scheme-accent-600-30: rgba(61, 111, 171, 0.3);
+  --scheme-accent-600-50: rgba(61, 111, 171, 0.5);
+
+  /* Neutral — Warm Navy Blue Gray */
+  --scheme-neutral-100: #050810;
+  --scheme-neutral-200: #0a0f1e;
+  --scheme-neutral-300: #141e36;
+  --scheme-neutral-400: #1e2e50;
+  --scheme-neutral-500: #2e4070;
+  --scheme-neutral-600: #4a6090;
+  --scheme-neutral-700: #7090b8;
+  --scheme-neutral-800: #9ab4d0;
+  --scheme-neutral-900: #bdd0e8;
+  --scheme-neutral-1000: #d8e8f5;
+  --scheme-neutral-1100: #eaf3fc;
+  --scheme-neutral-1200: #f5faff;
+  --scheme-neutral-600-10: rgba(74, 96, 144, 0.1);
+  --scheme-neutral-600-30: rgba(74, 96, 144, 0.3);
+  --scheme-neutral-600-50: rgba(74, 96, 144, 0.5);
+}
+
+/* -------------------------------------------------------
+   DARK MODE — Langit Malam Berbintang
+   Background: Deep Space Navy (#080D1A)
+------------------------------------------------------- */
+[data-theme="dark"] {
+  --page-background: #080d1a;
+  --page-background-alpha: rgba(8, 13, 26, 0.95);
+}
+
+/* -------------------------------------------------------
+   LIGHT MODE — Langit Siang Berbintang
+   Background: Sky Mist (#D8ECFA → putih kebiruan lembut)
+------------------------------------------------------- */
+[data-theme="light"] {
+  --page-background: #d8ecfa;
+  --page-background-alpha: rgba(216, 236, 250, 0.95);
+}

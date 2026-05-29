@@ -76,11 +76,11 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Riqo, a Front-End Developer specializing in building responsive,
-      intuitive, and accessible user interfaces.
+      I'm Riqo, a Front-End Developer specializing in building responsive, intuitive, and accessible
+      user interfaces.
       <br />
-      In addition to my studies in Informatics Engineering, I actively develop
-      personal projects to refine my frontend skills.
+      In addition to my studies in Informatics Engineering, I actively develop personal projects to
+      refine my frontend skills.
     </>
   ),
 };
@@ -106,10 +106,9 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Riqo is an Informatics Engineering student focused on front-end
-        development, with a strong interest in building clean, responsive, and
-        user-friendly interfaces. His work centers on crafting interactive
-        mobile experiences and translating design concepts into functional,
+        Riqo is an Informatics Engineering student focused on front-end development, with a strong
+        interest in building clean, responsive, and user-friendly interfaces. His work centers on
+        crafting interactive mobile experiences and translating design concepts into functional,
         accessible user interfaces.
       </>
     ),
@@ -124,14 +123,13 @@ const about: About = {
         role: "Junior Design Engineer",
         achievements: [
           <>
-            Designed and developed a mobile UI/UX application using Flutter,
-            focusing on clean layouts, intuitive navigation, and responsive
-            components to deliver a smooth user experience.
+            Designed and developed a mobile UI/UX application using Flutter, focusing on clean
+            layouts, intuitive navigation, and responsive components to deliver a smooth user
+            experience.
           </>,
           <>
-            This project reflects my approach to front-end development, where
-            design consistency, usability, and accessibility are prioritized
-            across all mobile screens.
+            This project reflects my approach to front-end development, where design consistency,
+            usability, and accessibility are prioritized across all mobile screens.
           </>,
         ],
         images: [
@@ -150,12 +148,12 @@ const about: About = {
         role: "Front-End Mobile Developer",
         achievements: [
           <>
-            Developed and optimized mobile application interfaces using Flutter,
-            ensuring responsive design and improving app performance by 30%.
+            Developed and optimized mobile application interfaces using Flutter, ensuring responsive
+            design and improving app performance by 30%.
           </>,
           <>
-            Collaborated with cross-functional teams to deliver production-ready
-            features, contributing to a 20% increase in user engagement.
+            Collaborated with cross-functional teams to deliver production-ready features,
+            contributing to a 20% increase in user engagement.
           </>,
         ],
         images: [
@@ -191,10 +189,7 @@ const about: About = {
       {
         title: "Figma",
         description: (
-          <>
-            Able to create prototypes in Figma for mobile devices with a
-            user-friendly interface.
-          </>
+          <>Able to create prototypes in Figma for mobile devices with a user-friendly interface.</>
         ),
         tags: [
           {

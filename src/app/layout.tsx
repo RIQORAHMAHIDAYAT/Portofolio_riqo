@@ -4,16 +4,9 @@ import "@/resources/custom.css";
 
 import classNames from "classnames";
 
-import {
-  Background,
-  Column,
-  Flex,
-  Meta,
-  opacity,
-  RevealFx,
-  SpacingToken,
-} from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
+import { Background, Column, Flex, Meta, RevealFx } from "@once-ui-system/core";
+import type { opacity, SpacingToken } from "@once-ui-system/core";
+import { Footer, Header, RouteGuard, Providers, CursorTrail } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 
 export async function generateMetadata() {
@@ -45,63 +38,63 @@ export default async function RootLayout({
       )}
     >
       <head>
-        <script
-          id="theme-init"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const root = document.documentElement;
-                  const defaultTheme = 'system';
-                  
-                  // Set defaults from config
-                  const config = ${JSON.stringify({
-                    brand: style.brand,
-                    accent: style.accent,
-                    neutral: style.neutral,
-                    solid: style.solid,
-                    "solid-style": style.solidStyle,
-                    border: style.border,
-                    surface: style.surface,
-                    transition: style.transition,
-                    scaling: style.scaling,
-                    "viz-style": dataStyle.variant,
-                  })};
-                  
-                  // Apply default values
-                  Object.entries(config).forEach(([key, value]) => {
-                    root.setAttribute('data-' + key, value);
-                  });
-                  
-                  // Resolve theme
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  
-                  // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
-                  
-                  // Apply any saved style overrides
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
-                  });
-                } catch (e) {
-                  console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
+        <script id="theme-init">{`
+          (function() {
+            try {
+              const root = document.documentElement;
+              const defaultTheme = 'system';
+              
+              // Set defaults from config
+              const config = ${JSON.stringify({
+                brand: style.brand,
+                accent: style.accent,
+                neutral: style.neutral,
+                solid: style.solid,
+                "solid-style": style.solidStyle,
+                border: style.border,
+                surface: style.surface,
+                transition: style.transition,
+                scaling: style.scaling,
+                "viz-style": dataStyle.variant,
+              })};
+              
+              // Apply default values
+              Object.entries(config).forEach(([key, value]) => {
+                root.setAttribute('data-' + key, value);
+              });
+
+              // Reset old cache for style keys to force custom styles to load
+              ['brand', 'accent', 'neutral'].forEach(key => {
+                localStorage.removeItem('data-' + key);
+              });
+              
+              // Resolve theme
+              const resolveTheme = (themeValue) => {
+                if (!themeValue || themeValue === 'system') {
+                  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                 }
-              })();
-            `,
-          }}
-        />
+                return themeValue;
+              };
+              
+              // Apply saved theme
+              const savedTheme = localStorage.getItem('data-theme');
+              const resolvedTheme = resolveTheme(savedTheme);
+              root.setAttribute('data-theme', resolvedTheme);
+              
+              // Apply any saved style overrides
+              const styleKeys = Object.keys(config);
+              styleKeys.forEach(key => {
+                const value = localStorage.getItem('data-' + key);
+                if (value) {
+                  root.setAttribute('data-' + key, value);
+                }
+              });
+            } catch (e) {
+              console.error('Failed to initialize theme:', e);
+              document.documentElement.setAttribute('data-theme', 'dark');
+            }
+          })();
+        `}</script>
       </head>
       <Providers>
         <Column
@@ -113,6 +106,7 @@ export default async function RootLayout({
           padding="0"
           horizontal="center"
         >
+          <CursorTrail />
           <RevealFx fill position="absolute">
             <Background
               mask={{
