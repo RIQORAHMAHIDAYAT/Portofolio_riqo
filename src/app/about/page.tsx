@@ -60,7 +60,7 @@ export default function About() {
           <Row gap="8" vertical="center" marginTop="4">
             <Icon onBackground="accent-weak" name="globe" />
             <Text variant="body-default-s" onBackground="neutral-weak">
-              {person.location}
+              {person.city ?? person.location}
             </Text>
           </Row>
 

@@ -1,14 +1,15 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Riqo",
   lastName: "Rahma Hidayat",
-  name: `Riqo Rahma Hidayat`,
+  name: "Riqo Rahma Hidayat",
   role: "Front-End Developer",
   avatar: "/images/avatar_Riqo.jpg",
-  email: "riqorhidayat@gmail.com",
+  email: "riqorahmahidayat@gmail.com",
   location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  city: "Tegal, Indonesia", // Displayed as readable city name
   languages: ["bahasa", "English", "indonesian"], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -89,7 +90,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, ${person.role} from ${person.city ?? person.location}`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -122,15 +123,8 @@ const about: About = {
         timeframe: "2025 - Present",
         role: "Junior Design Engineer",
         achievements: [
-          <>
-            Designed and developed a mobile UI/UX application using Flutter, focusing on clean
-            layouts, intuitive navigation, and responsive components to deliver a smooth user
-            experience.
-          </>,
-          <>
-            This project reflects my approach to front-end development, where design consistency,
-            usability, and accessibility are prioritized across all mobile screens.
-          </>,
+          "Designed and developed a mobile UI/UX application using Flutter, focusing on clean layouts, intuitive navigation, and responsive components to deliver a smooth user experience.",
+          "This project reflects my approach to front-end development, where design consistency, usability, and accessibility are prioritized across all mobile screens.",
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
@@ -147,14 +141,8 @@ const about: About = {
         timeframe: "2025 - Present",
         role: "Front-End Mobile Developer",
         achievements: [
-          <>
-            Developed and optimized mobile application interfaces using Flutter, ensuring responsive
-            design and improving app performance by 30%.
-          </>,
-          <>
-            Collaborated with cross-functional teams to deliver production-ready features,
-            contributing to a 20% increase in user engagement.
-          </>,
+          "Developed and optimized mobile application interfaces using Flutter, ensuring responsive design and improving app performance by 30%.",
+          "Collaborated with cross-functional teams to deliver production-ready features, contributing to a 20% increase in user engagement.",
         ],
         images: [
           // optional: leave the array empty if you don't want to display images

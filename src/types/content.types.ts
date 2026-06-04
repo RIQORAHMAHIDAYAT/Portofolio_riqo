@@ -25,6 +25,8 @@ export type Person = {
   email: string;
   /** IANA time zone location */
   location: IANATimeZone;
+  /** Human-readable city name for display (e.g. 'Tegal, Indonesia') */
+  city?: string;
   /** Languages spoken */
   languages?: string[];
 };

@@ -10,9 +10,10 @@ import {
   Schema,
   Meta,
   Line,
+  Media,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
+import { Mailchimp, InteractiveAvatar } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 
@@ -44,6 +45,10 @@ export default function Home() {
       />
       <Column fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
+          {/* ── Foto hero profil ── */}
+          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="24" paddingTop="16">
+            <InteractiveAvatar src={person.avatar} alt={`${person.name} photo`} />
+          </RevealFx>
           {home.featured.display && (
             <RevealFx
               fillWidth
