@@ -1,50 +1,50 @@
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 
 import {
-  HiArrowUpRight,
-  HiOutlineLink,
-  HiArrowTopRightOnSquare,
-  HiEnvelope,
-  HiCalendarDays,
   HiArrowRight,
+  HiArrowTopRightOnSquare,
+  HiArrowUpRight,
+  HiCalendarDays,
+  HiEnvelope,
+  HiOutlineDocument,
   HiOutlineEye,
   HiOutlineEyeSlash,
-  HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
+  HiOutlineLink,
   HiOutlineRocketLaunch,
 } from "react-icons/hi2";
 
 import {
-  PiHouseDuotone,
-  PiUserCircleDuotone,
-  PiGridFourDuotone,
   PiBookBookmarkDuotone,
+  PiGridFourDuotone,
+  PiHouseDuotone,
   PiImageDuotone,
+  PiUserCircleDuotone,
 } from "react-icons/pi";
 
 import {
-  SiJavascript,
-  SiNextdotjs,
   SiFigma,
-  SiSupabase,
-  SiFlutter,
   SiFlask,
+  SiFlutter,
+  SiJavascript,
   SiMysql,
+  SiNextdotjs,
+  SiSupabase,
 } from "react-icons/si";
 
 import {
   FaDiscord,
-  FaGithub,
-  FaLinkedin,
-  FaX,
-  FaThreads,
-  FaInstagram,
-  FaXTwitter,
   FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
   FaPinterest,
-  FaWhatsapp,
   FaReddit,
   FaTelegram,
+  FaThreads,
+  FaWhatsapp,
+  FaX,
+  FaXTwitter,
 } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {

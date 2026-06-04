@@ -63,8 +63,7 @@ export function CursorTrail() {
         width: 400,
         height: 400,
         borderRadius: "50%",
-        background:
-          "radial-gradient(circle, rgba(100, 140, 220, 0.07) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(100, 140, 220, 0.07) 0%, transparent 70%)",
         pointerEvents: "none",
         zIndex: 9999,
         opacity: 0,

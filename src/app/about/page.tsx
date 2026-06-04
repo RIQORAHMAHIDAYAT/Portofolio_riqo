@@ -1,19 +1,19 @@
+import { about, baseURL, person, social } from "@/resources";
 import {
   Avatar,
   Button,
   Column,
   Heading,
+  Icon,
   IconButton,
   Line,
   Media,
+  Meta,
+  Row,
+  Schema,
   Tag,
   Text,
-  Meta,
-  Schema,
-  Row,
-  Icon,
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
 import React from "react";
 
 export async function generateMetadata() {

@@ -1,7 +1,6 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
-import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person, newsletter } from "@/resources";
+import { baseURL, blog, person } from "@/resources";
+import { Column, Flex, Heading, Line, Meta, Row, Schema, Text } from "@once-ui-system/core";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -29,17 +28,42 @@ export default function Blog() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" marginLeft="24">
-        {blog.title}
-      </Heading>
-      <Column fillWidth flex={1} gap="40">
-        <Posts range={[1, 1]} thumbnail />
+
+      {/* Header Section — personal, bukan template */}
+      <Column paddingX="l" paddingBottom="40" gap="16">
+        <Text
+          variant="label-strong-s"
+          onBackground="brand-medium"
+          style={{ letterSpacing: "0.08em", textTransform: "uppercase" }}
+        >
+          Blog
+        </Text>
+        <Heading variant="display-strong-m">{blog.title}</Heading>
+        <Text variant="body-default-m" onBackground="neutral-weak" style={{ maxWidth: "560px" }}>
+          {blog.description}
+        </Text>
+      </Column>
+
+      <Column fillWidth flex={1} gap="48">
+        {/* Featured post — paling baru, ditampilkan besar dengan thumbnail */}
+        <Column gap="0">
+          <Posts range={[1, 1]} thumbnail />
+        </Column>
+
+        {/* 2 post berikutnya — side by side dengan thumbnail */}
         <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
-        <Mailchimp marginBottom="l" />
-        <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
-          Earlier posts
-        </Heading>
-        <Posts range={[4]} columns="2" />
+
+        {/* Divider + All posts section with thumbnails */}
+        <Column paddingX="l" gap="32">
+          <Row fillWidth gap="24" vertical="center">
+            <Line flex={1} background="neutral-alpha-medium" />
+            <Text variant="label-default-s" onBackground="neutral-weak">
+              All Posts
+            </Text>
+            <Line flex={1} background="neutral-alpha-medium" />
+          </Row>
+          <Posts range={[4]} columns="2" thumbnail direction="column" />
+        </Column>
       </Column>
     </Column>
   );

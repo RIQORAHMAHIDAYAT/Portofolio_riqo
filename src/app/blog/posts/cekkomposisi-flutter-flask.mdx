@@ -1,0 +1,68 @@
+---
+title: "Building CekKomposisi: A Food Nutrition Scanner App with Flutter & Flask"
+subtitle: "From Figma mockup to deployment — building a mobile app that detects nutritional content in packaged foods"
+summary: "CekKomposisi is a mobile application that analyzes food packaging to display nutritional composition. Built with Flutter for the UI, Flask as a REST API backend, and MySQL as the database."
+image: "/images/projects/project-01/CekKomposisi_UI.png"
+publishedAt: "2026-01-15"
+tag: "Flutter"
+---
+
+## The Idea Behind CekKomposisi
+
+Have you ever bought packaged food and struggled to read the nutrition table on the back? CekKomposisi was built to solve exactly that — a mobile app that **detects food products from a photo of their packaging** and instantly displays nutritional information in an intuitive, visual format.
+
+## Design Phase: Starting in Figma
+
+![CekKomposisi UI Design in Figma](/images/projects/project-01/CekKomposisi_UI.png)
+
+Before writing a single line of code, I spent time designing the interface in Figma. My design priorities were:
+
+- **Clarity** — nutritional info must be readable at a glance
+- **Visual hierarchy** — a clear distinction between important and secondary data
+- **Color coding** — to help users intuitively assess sugar, salt, and fat levels
+
+## Implementation with Flutter
+
+![Flutter Implementation in Android Studio](/images/projects/project-01/Android_studio.png)
+
+Once the design was done, I implemented the UI using **Flutter**. Why Flutter?
+
+- **Cross-platform** — one codebase for both Android and iOS
+- **Hot reload** that speeds up UI iteration
+- A flexible widget system for high-fidelity replication of Figma designs
+
+### UI Component Structure
+
+```dart
+// Example: NutritionCard component
+class NutritionCard extends StatelessWidget {
+  final String nutrientName;
+  final double value;
+  final double dailyLimit;
+  
+  // Progress bar turns red if > 80% of daily limit
+  Color get indicatorColor => 
+    value / dailyLimit > 0.8 ? Colors.red : Colors.green;
+}
+```
+
+## Backend: Flask REST API
+
+For business logic and database connectivity, I used **Flask** as a REST API:
+
+- **Product detection endpoint** — receives a photo, searches the MySQL database
+- **Nutrition data endpoint** — returns nutritional facts per product
+- **Tracking endpoint** — logs user consumption history
+
+## Technical Challenges
+
+The biggest challenge was **packaging design variation**. Lighting conditions, camera angles, and image quality heavily affected detection accuracy.
+
+Solutions I applied:
+1. Image preprocessing before sending to the server
+2. Normalized product names in the database for more tolerant matching
+3. Keyword-based search fallback when exact matching fails
+
+## Outcome
+
+CekKomposisi successfully delivers a functional mobile solution that helps users understand nutritional content in packaged products. This project deepened my understanding of **full-stack integration** between Flutter, Flask, and MySQL — and reinforced the importance of user-centered design.

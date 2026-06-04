@@ -1,0 +1,81 @@
+---
+title: "Figma to Flutter: My Design-to-Code Workflow"
+subtitle: "How I turn Figma mockups into clean, maintainable Flutter code"
+summary: "A breakdown of my workflow from Figma design to Flutter implementation, including tips for maintaining visual consistency and managing design tokens between Figma and code."
+image: "/images/projects/project-01/Android_studio.png"
+publishedAt: "2025-12-10"
+tag: "Flutter"
+---
+
+## The Classic Problem: The Design-to-Code Gap
+
+One of the most common issues in mobile development is the **gap between what's designed in Figma and what actually appears on screen**. Colors are slightly off, spacing isn't precise, fonts feel different.
+
+In this post, I share the workflow I use to minimize that gap.
+
+## Step 1: Set Up Design Tokens in Figma
+
+Before designing anything, I define **design tokens** as Figma Variables:
+
+- **Color palette** — primary, secondary, neutral, semantic colors (success, warning, error)
+- **Typography scale** — heading XL, heading L, body M, body S, label S
+- **Spacing scale** — 4, 8, 12, 16, 24, 32, 48, 64 (multiples of 4)
+- **Border radius** — sm (4px), md (8px), lg (16px), full (999px)
+
+## Step 2: Export Design Tokens to Flutter
+
+From Figma Variables, I generate an `app_theme.dart` file:
+
+```dart
+class AppColors {
+  // Primary
+  static const Color primary = Color(0xFF4D7FD4);
+  static const Color primaryDark = Color(0xFF2A4A9C);
+  
+  // Neutral
+  static const Color background = Color(0xFF080D1A);
+  static const Color surface = Color(0xFF0F1A35);
+  static const Color textPrimary = Color(0xFFD8E8F5);
+  static const Color textSecondary = Color(0xFF7090B8);
+}
+
+class AppSpacing {
+  static const double xs = 4.0;
+  static const double sm = 8.0;
+  static const double md = 16.0;
+  static const double lg = 24.0;
+  static const double xl = 32.0;
+}
+```
+
+## Step 3: Component-First Development
+
+With tokens ready, I build components from the smallest units outward:
+
+1. **Atoms** — Button, TextField, Badge, Avatar
+2. **Molecules** — Card, ListItem, labeled FormField
+3. **Organisms** — Header, BottomNav, ProductCard with all its atoms
+4. **Screens** — Assembling organisms into complete pages
+
+This approach ensures visual consistency since all components use the same tokens.
+
+## Step 4: Pixel-Perfect Review
+
+After the initial implementation, I review by:
+
+1. Taking a screenshot from the Flutter simulator
+2. Overlaying it on the Figma frame at 50% opacity
+3. Identifying discrepancies — usually letter-spacing or line-height
+4. Adjusting until the result is identical
+
+## Most Helpful Tips
+
+**Use `flutter_screenutil` for responsive sizing** — don't hardcode pixel values, since Android screen sizes vary enormously.
+
+**Auto Layout in Figma = Column/Row in Flutter** — once you're comfortable with Auto Layout, Flutter implementation becomes far more intuitive.
+
+**Create a `CustomText` widget** — a simple wrapper that enforces the correct typography tokens, so you don't accidentally use the wrong style throughout the app.
+
+## Conclusion
+
+A solid Figma → Flutter workflow isn't about which tools you use — it's about **the discipline of defining your system before you start coding**. Design tokens are the foundation. Everything else becomes much easier from there.

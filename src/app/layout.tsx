@@ -4,10 +4,10 @@ import "@/resources/custom.css";
 
 import classNames from "classnames";
 
+import { CursorTrail, Footer, Header, Providers, RouteGuard } from "@/components";
+import { baseURL, dataStyle, effects, fonts, home, style } from "@/resources";
 import { Background, Column, Flex, Meta, RevealFx } from "@once-ui-system/core";
-import type { opacity, SpacingToken } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers, CursorTrail } from "@/components";
-import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
+import type { SpacingToken, opacity } from "@once-ui-system/core";
 
 export async function generateMetadata() {
   return Meta.generate({

@@ -32,7 +32,7 @@ const social: Social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/",
+    link: "https://id.linkedin.com/in/riqo-rahma-hidayat-542112291",
     essential: true,
   },
   {
@@ -66,10 +66,10 @@ const home: Home = {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">CekKomposisi</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Mobile App
         </Text>
       </Row>
     ),
@@ -235,8 +235,8 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Blog about me...",
-  description: `Read what ${person.name} has been up to recently`,
+  title: "Writing & Notes",
+  description: `Project reflections, technical notes, and things I've learned as a Front-End Developer`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };

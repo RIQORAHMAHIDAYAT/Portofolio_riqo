@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
 import { Media } from "@once-ui-system/core";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface InteractiveAvatarProps {
   src: string;
@@ -31,7 +31,23 @@ export function InteractiveAvatar({ src, alt }: InteractiveAvatarProps) {
     };
   }, [isOpen]);
 
+  // Tutup modal dengan tombol Escape
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
   const modalContent = isOpen && (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: Overlay click-to-close is a helper, keyboard navigation is handled by global Escape key
     <div
       onClick={() => setIsOpen(false)}
       style={{
@@ -50,18 +66,6 @@ export function InteractiveAvatar({ src, alt }: InteractiveAvatarProps) {
         animation: "fadeIn 0.2s ease-out",
       }}
     >
-      {/* Animasi Fade In CSS */}
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes scaleIn {
-          from { transform: scale(0.95); opacity: 0; }
-          to { transform: scale(1); opacity: 1; }
-        }
-      `}} />
-
       {/* Gambar Menyeluruh */}
       <div
         style={{
@@ -95,6 +99,7 @@ export function InteractiveAvatar({ src, alt }: InteractiveAvatarProps) {
     <>
       {/* Tombol/Container Avatar Lingkaran */}
       <button
+        type="button"
         onClick={() => setIsOpen(true)}
         aria-label="View profile photo"
         style={{
