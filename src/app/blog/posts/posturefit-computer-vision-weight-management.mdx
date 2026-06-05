@@ -1,0 +1,94 @@
+---
+title: "PostureFit: Building an AI-Powered Weight Management App with Flutter & Computer Vision"
+subtitle: "How I combined Clean Architecture, GetX, and a Computer Vision backend to create a personalized fitness companion app"
+summary: "A deep-dive into building PostureFit — a capstone mobile application that uses Computer Vision to classify body types and deliver personalized weight management recommendations through a clean, scalable Flutter codebase."
+image: "/images/projects/project-03/posturefit-01.png"
+publishedAt: "2026-06-05"
+tag: "Flutter"
+---
+
+## The Problem I Wanted to Solve
+
+Most fitness apps ask you to manually input your weight, height, and goals — then spit out a generic workout plan. That approach misses something fundamental: **people have different body compositions**, and a plan that works for someone with an underweight frame (*kurus*) will be completely wrong for someone who is overweight (*gemuk*).
+
+PostureFit was born from this gap. Instead of relying on typed-in numbers, what if the app could **visually analyze your body** and build a truly personalized experience from there?
+
+## The Core Feature: Computer Vision Body Type Classification
+
+This was the most technically challenging part of the project. Instead of using BMI (which is purely mathematical), PostureFit performs **direct visual classification** of a user's photo into three categories:
+
+- 🟡 **Kurus** (Underweight)
+- 🟢 **Normal**
+- 🔴 **Gemuk** (Overweight)
+
+### The Backend Pipeline
+
+The model runs on a **Python backend** served as a REST API. The pipeline works like this:
+
+```
+User takes photo → Flutter uploads image → Python API receives it
+→ Image preprocessing (resize, normalize) → CNN model inference
+→ Returns class label + confidence score → Flutter renders result
+```
+
+The critical challenge was **dataset diversity**. A model trained only on certain body types, lighting conditions, or clothing styles will fail in the real world. I spent significant time on dataset curation and augmentation to improve generalization.
+
+### Why Not Skeletal Joint Detection?
+
+Early in the project, I explored using pose estimation (skeletal joint detection like MediaPipe). But I quickly realized this approach had critical limitations:
+
+1. **Accuracy dependency on pose** — the user must stand in a specific position
+2. **Occlusion problems** — loose clothing blocks joint visibility
+3. **User friction** — requiring a specific pose creates a bad UX
+
+Body type classification from a natural standing photo proved more **reliable, faster, and user-friendly**.
+
+## Personalized Workout Plans
+
+![PostureFit Workout & Recommendation Screen](/images/projects/project-03/posturefit-02.png)
+
+Once the body type is classified, PostureFit generates a **structured daily workout circuit** based on the user's goal:
+
+- **Cutting** → High-rep, low-rest cardio-forward circuits for fat loss
+- **Maintenance** → Balanced strength and cardio combination
+- **Bulking** → Compound lifts with progressive overload focus
+
+The workout engine pulls from a structured data layer, ensuring recommendations are always aligned with the user's current classification — not a static preset.
+
+## The Hardest Bug I Solved
+
+Managing state across multiple interconnected screens — the body analysis result and the active workout session — was far more complex than I initially anticipated.
+
+The problem: if a user re-ran their body analysis mid-workout, the workout screen showed outdated recommendations.
+
+The solution was implementing a **reactive state dependency graph** using GetX's `ever()` listener:
+
+```dart
+// Automatically re-sync dependent controllers when analysis result changes
+ever(analysisController.result, (BodyTypeResult newResult) {
+  workoutController.regeneratePlan(newResult);
+});
+```
+
+This ensured that any change to the classification result automatically propagated to every dependent feature — no manual sync required.
+
+## Key Takeaways
+
+Building PostureFit taught me lessons that go beyond technical skills:
+
+1. **Architecture decisions compound.** The investment in Clean Architecture paid back with interest when the backend model changed and I only had to update the Data layer.
+
+2. **Don't solve the wrong problem first.** Skeletal detection was technically impressive but the wrong tool. Pivoting early to classification saved the project.
+
+3. **State management is UX.** Bad state management doesn't just cause bugs — it creates confusing, inconsistent experiences that erode user trust.
+
+## What's Next
+
+PostureFit has a solid foundation, but there's more to build:
+
+- [ ] Real-time posture feedback using the camera stream
+- [ ] Workout progress tracking with history charts
+- [ ] Nutrition logging integrated with the body type insights
+- [ ] On-device model inference to remove the backend dependency
+
+If you're interested in the codebase, the full source is available on [GitHub — PostureFit](https://github.com/RIQORAHMAHIDAYAT/PostureFit.git).

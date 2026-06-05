@@ -118,6 +118,20 @@ export default async function Project({
           </Text>
         </Row>
       </Row>
+      {post.metadata.github && (
+        <Row horizontal="center" marginBottom="8">
+          <Button
+            href={post.metadata.github}
+            variant="secondary"
+            size="m"
+            target="_blank"
+            rel="noopener noreferrer"
+            prefixIcon="github"
+          >
+            View on GitHub
+          </Button>
+        </Row>
+      )}
       {post.metadata.images.length > 0 && (
         <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
       )}

@@ -1,0 +1,52 @@
+---
+title: "PostureFit — Computer Vision Integration & Activity Analysis for Personalized Weight Management"
+publishedAt: "2026-06-05"
+summary: "A cross-platform mobile health application built with Flutter and Clean Architecture, integrating Computer Vision for body type classification and activity analysis to deliver highly personalized weight management recommendations."
+images:
+  - "/images/projects/project-03/posturefit-01.png"
+  - "/images/projects/project-03/posturefit-02.png"
+team:
+  - name: "Riqo Rahma Hidayat"
+    role: "Mobile Developer & AI Integrator"
+    avatar: "/images/avatars/riqo.jpg"
+    linkedIn: "https://id.linkedin.com/in/riqo-rahma-hidayat-542112291"
+github: "https://github.com/RIQORAHMAHIDAYAT/PostureFit.git"
+---
+
+## Overview
+
+PostureFit is a capstone project at the intersection of health technology and artificial intelligence. Built with Flutter using Clean Architecture principles and GetX for state management, it provides users with a comprehensive, personalized health ecosystem directly on their mobile device.
+
+The core innovation is its **Computer Vision integration**, which analyzes user images to classify body types into three distinct categories — underweight (*kurus*), normal, or overweight (*gemuk*) — bypassing the limitations of simple BMI calculations for a more direct and accurate visual analysis.
+
+![PostureFit App UI Overview](/images/projects/project-03/posturefit-01.png)
+
+## Key Features
+
+- **Body Type Classification via Computer Vision**: Implemented an image classification model to accurately identify a user's body type foundation, enabling truly personalized health pathways that go beyond generic metric-based assessment.
+- **AI 'Coach' Chatbot**: Integrated a custom LLM-powered conversational chatbot that explains technical posture and health data to users in plain language, offering actionable and empathetic fitness advice.
+- **Personalized Workout Plans**: Delivers structured daily workout circuits dynamically tailored to the user's specific goal — whether cutting (fat loss), maintenance, or bulking (muscle gain).
+- **Clean Architecture & GetX**: Built with a strictly decoupled three-layer architecture (Presentation, Domain, Data), ensuring the application is highly maintainable, testable, and scalable for future feature additions.
+- **Responsive & Dynamic UI**: Engineered a smooth, intuitive mobile interface in Flutter that adapts fluidly across Android and iOS screen sizes.
+
+![PostureFit Workout & Analysis Screen](/images/projects/project-03/posturefit-02.png)
+
+## Technologies Used
+
+- **Flutter**: Cross-platform front-end mobile development for Android and iOS
+- **GetX**: Lightweight and powerful state management, routing, and dependency injection
+- **Clean Architecture**: Strict separation of concerns across Presentation, Domain, and Data layers for a scalable and maintainable codebase
+- **Computer Vision (Python)**: Image classification model for body type analysis, trained and served via a RESTful backend API
+- **Python (Backend)**: AI model serving, REST API development, and backend business logic
+
+## Challenges and Learnings
+
+The most critical architectural decision in this project was pivoting the Computer Vision focus from complex skeletal joint detection to a more reliable and impactful **body type classification** system. Accurately distinguishing between *kurus*, *normal*, and *gemuk* required rigorous dataset curation, careful model tuning, and robust backend-to-frontend API communication to ensure response reliability.
+
+On the mobile side, managing complex, interdependent UI states across the workout tracker and AI chat interface demanded strict adherence to the Clean Architecture data flow pattern. This discipline ensured all business logic remained completely isolated from UI components — a practice that significantly accelerated debugging cycles and feature development.
+
+## Outcome
+
+PostureFit serves as a comprehensive digital health ecosystem that bridges the gap between raw physical analysis and actionable fitness routines. The project validates the viability of integrating advanced AI and Computer Vision capabilities directly into a consumer-facing mobile application, all backed by a robust, production-grade, and highly maintainable codebase.
+
+> 🔗 **Source Code**: View the full project repository on [GitHub — PostureFit](https://github.com/RIQORAHMAHIDAYAT/PostureFit.git)
