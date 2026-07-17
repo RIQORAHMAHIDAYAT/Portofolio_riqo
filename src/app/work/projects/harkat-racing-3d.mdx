@@ -1,0 +1,87 @@
+---
+title: "Harkat Racing 3D — 3D Arcade Racing Game"
+publishedAt: "2026-07-17"
+summary: "A 3D arcade racing game built with Unity (URP), featuring dual vehicle types (car & motorcycle), drift mechanics, power-ups, and multiple race tracks."
+images:
+  - "/images/projects/project-04/logo.png"
+  - "/images/projects/project-04/play_mobil.png"
+  - "/images/projects/project-04/finish.png"
+tag: "game"
+team:
+  - name: "Riqo Rahma Hidayat"
+    role: "Game Developer"
+    avatar: "/images/avatar_Riqo.jpg"
+    linkedIn: "https://id.linkedin.com/in/riqo-rahma-hidayat-542112291"
+link: "https://drive.google.com/drive/folders/1aT2iDeOny1323lroOjX57H_ZklYK76Y7?usp=sharing"
+github: "https://github.com/RIQORAHMAHIDAYAT/Harkat_Racing_3D.git"
+---
+
+## Overview
+
+**Harkat Racing 3D** is a 3D arcade racing game developed with Unity 6 and the Universal Render Pipeline (URP). Take control of a car or motorcycle, master drift mechanics, collect power-ups, and compete across multiple tracks to achieve the best lap times. The game features three input modes — keyboard, gamepad, and mobile touch — with a real-time minimap and race countdown system.
+
+<Button href="https://drive.google.com/drive/folders/1aT2iDeOny1323lroOjX57H_ZklYK76Y7?usp=sharing" variant="primary" size="l" target="_blank" rel="noopener noreferrer" arrowIcon>Download Game (Google Drive)</Button>
+
+![Gameplay](/images/projects/project-04/play_mobil.png)
+
+In-game racing with the car vehicle — speed boosters, lap counter, and minimap visible on the HUD.
+
+## Key Features
+
+- **Dual Vehicle System** — Car with WheelCollider physics & drift mechanics; Motorcycle with Rigidbody-based physics & lean system
+- **Drift Mechanics** — Dynamic rear-wheel friction reduction based on speed and steering input
+- **Power-ups** — Speed boosters & collectible coins scattered across tracks
+- **Multi-Lap Racing** — Configurable lap count with finish line detection
+- **Three Control Modes** — Keyboard, Gamepad, and Mobile Touch (switchable in-game)
+- **Real-time Minimap** — Top-down track navigation with vehicle heading indicator
+- **Race Countdown** — 3-2-1-GO! start sequence
+- **Auto-Respawn** — Anti-stuck detection and automatic vehicle respawn
+- **Runtime UI** — All HUD elements generated programmatically (no prefab dependencies)
+
+![Finish Line](/images/projects/project-04/finish.png)
+
+Race result screen showing lap completion and performance summary.
+
+## Technologies Used
+
+- **Unity 6000.3.12f1** — Game engine
+- **Universal Render Pipeline (URP)** — Rendering pipeline
+- **WheelCollider** — Car physics and drift system
+- **Rigidbody** — Motorcycle physics and lean mechanics
+- **C#** — Core game logic and scripting
+- **TextMesh Pro** — UI text rendering
+
+![Pause Menu](/images/projects/project-04/pause.png)
+
+In-game pause menu with options to resume, restart, or return to main menu.
+
+## Challenges and Learnings
+
+Building a dual-vehicle system with fundamentally different physics approaches (WheelCollider for the car vs Rigidbody for the motorcycle) was a significant architectural challenge. Each vehicle required its own controller logic while sharing common systems like input handling, power-up detection, and lap tracking.
+
+The drift mechanics involved carefully tuning friction curves and angular velocity to create a responsive yet forgiving feel. Implementing three simultaneous control schemes (keyboard, gamepad, and touch) through a unified input abstraction layer required thoughtful design to avoid code duplication while maintaining responsiveness across all input types.
+
+![Tutorial](/images/projects/project-04/tutorial.png)
+
+Tutorial overlay explaining controls and game mechanics.
+
+## Outcome
+
+Harkat Racing 3D is a fully playable arcade racing game demonstrating competence in Unity physics systems, input abstraction, procedural UI generation, and game architecture. The project serves as both a portfolio piece and a foundation for future gameplay additions.
+
+![Settings](/images/projects/project-04/setting.png)
+
+Control mode selection and audio settings screen.
+
+## Credits
+
+- **CartoonTracksPack1** — Cartoon-style race track environment
+- **Snow mountain tracks** — Snow mountain track assets
+- **BEDRILL — Track Environment Free** — Track environment pack
+- **HellaFlush Drift Car Free** — Drift car 3D model
+- **Honda Motor Co., Ltd** — Honda Super Cub C125 motorcycle model
+- **PolyKebap — Stylized Coin Pack** — Gold coin collectible models
+
+## Disclaimer
+
+Harkat Racing 3D is a game project created solely for educational purposes and portfolio development. The name "Harkat", logo, and all elements within this game are fictional. Any resemblance to actual names, brands, organizations, or real-world entities is purely coincidental.
